@@ -2,7 +2,7 @@ library(semPower)
 library(lavaan)
 
 
-Hypothese_1 <- '
+main_effect <- '
 i =~ 1*Punktzahl0 + 1*Punktzahl1 + 1*Punktzahl2
 s =~ 0*Punktzahl0 + 1*Punktzahl1 + 2*Punktzahl2
 
@@ -15,11 +15,11 @@ s ~ AT
 '
 
 
-nr_of_df = semPower.getDf(Hypothese_1)
+nr_of_df = semPower.getDf(main_effect)
 
 
 power_analysis <- semPower.aPriori(effect = .25, effect.measure = 'F0', 
-                       alpha = .05, power = .90, df = nr_of_df)
+                       alpha = .05, power = .80, df = nr_of_df)
 
 
 summary(power_analysis)
